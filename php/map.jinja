@@ -5,6 +5,7 @@
     {%- set use_external_repo = salt['pillar.get']('php:use_external_repo', False) %}
     {%- if use_external_repo %}
         {%- set php_version = salt['pillar.get']('php:version', '7.0')|string %}
+        {%- set phpng_version = salt['pillar.get']('php:phpng_version', '7.0')|string %}
         {%- if salt['grains.get']('osrelease')|string >= '16.04' %}
             {# Ubuntu 16.04+ specific PHP definitions #}
             {%- set php = salt['grains.filter_by']({
